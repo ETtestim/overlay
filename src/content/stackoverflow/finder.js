@@ -20,7 +20,7 @@ const urlParsers = {
   ...python.urlParsers,
 };
 
-const codeBlockParsers = [npm.parseCommand, python.parseCommand, go.parseCommand];
+const codeBlockParsers = [...npm.parseCommands, python.parseCommand, go.parseCommand];
 
 export const findRanges = (body) => {
   const links = Array.from(body.querySelectorAll(`${POST_SELECTOR} a`))
@@ -45,8 +45,8 @@ export const findRanges = (body) => {
     return codeBlockParsers.flatMap((parser) => {
       const packages = parser(element.textContent);
 
-      const withRanges = packages.map(({ startIndex, endIndex, ...packageID }) => {
-        const range = getRangeOfPositions(element, startIndex, endIndex);
+      const withRanges = packages.map(({ startIndex, length, ...packageID }) => {
+        const range = getRangeOfPositions(element, startIndex, length);
         return { ...packageID, range };
       });
 

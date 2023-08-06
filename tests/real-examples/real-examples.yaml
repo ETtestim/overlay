@@ -64,8 +64,20 @@ links:
     comment: npx
     post: question
     registry: npm
+  https://stackoverflow.com/questions/50605219:
+    comment: npx dummy package, npx -p
+    post: answer
+    registry: npm
+  https://stackoverflow.com/questions/70358643:
+    comment: npx with version and argument
+    post: answer
+    registry: npm
   https://stackoverflow.com/questions/22563281:
     comment: with semver ~
+    post: answer
+    registry: npm
+  https://stackoverflow.com/a/65043610/839513:
+    comment: multiple commands in the same line
     post: answer
     registry: npm
 
@@ -79,6 +91,14 @@ links:
     registry: pypi
   https://stackoverflow.com/questions/5226504:
     comment: flags, quotes and version variants
+    post: answer
+    registry: pypi
+  https://stackoverflow.com/questions/26575587:
+    comment: pip3 install command
+    post: answer
+    registry: pypi
+  https://stackoverflow.com/a/33984261:
+    comment: should Ignore this .whl as a package
     post: answer
     registry: pypi
 

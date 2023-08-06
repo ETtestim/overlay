@@ -1,0 +1,20 @@
+name: Validate Conventional Commit title
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: install commitlint
+        run: npm install -g @commitlint/cli @commitlint/config-conventional
+      - name: config commitlint
+        run: |
+          echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitlint.config.js
+      - name: validate PR title
+        env:
+          TITLE: ${{ github.event.pull_request.title }}
+        run: |
+          echo "$TITLE" | commitlint
